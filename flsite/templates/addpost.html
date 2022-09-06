@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<form action="{{url_for('add_post')}}" method="post" class="form-contact">
+    {% for field in form %}
+    {% if field.type != 'SubmitField' and field.type != 'CSRFTokenField' %}
+        <p>{{ field.label }}</p>
+    {% endif %}
+    <p>{{ field }}</p>
+    {% endfor %}
+    
+</form>
+{% endblock %}

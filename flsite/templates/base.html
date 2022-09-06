@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+	<title>{{title}}</title>
+</head>
+<body>
+<ul class="mainmenu">
+<li><a href="{{ url_for('index') }}">Главная</a></li>
+<li><a href="{{ url_for('add_post') }}">Добавить пост</a></li>
+{% if current_user.is_authenticated %}
+	<li><a href="{{ url_for('profile') }}">Профиль {{current_user.getName()}}</a></li>
+	<li><a href="{{ url_for('logout') }}">Выйти</a></li>
+{% else %}
+	<li><a href="{{ url_for('login') }}">Авторизация</a></li>
+{% endif %}
+<li><a href="{{ url_for('admin.index') }}">Админка</a></li>
+</ul>
+
+<div class="content">
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>

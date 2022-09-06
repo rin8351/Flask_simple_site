@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<h2>{{ post.title }}</h2>
+<p>Категория: {{ p.category.name }}</p>
+<p>{{ post.body }}</p>
+
+{% endblock %}
